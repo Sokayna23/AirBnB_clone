@@ -1,0 +1,40 @@
+#!/usr/bin/python3
+""" BaseModel module """
+import uuid
+from datetime import datetime
+
+
+class BaseModel:
+    """ class BaseModel"""
+
+    def __init__(self, *args, **kwargs):
+        """ init function"""
+        
+        if not kwargs:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now().isoformat()
+            self.updated_at = datetime.now().isoformat()
+        else:
+            for key,value in kwargs.items():
+                if key != "__class__":
+                    self.__dict__[key] = value
+            
+            self.id = kwargs["id"]
+            self.created_at = datetime.strptime(kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
+            self.updated_at = datetime.strptime(kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
+            
+         
+
+    def __str__(self):
+        """ str function"""
+        return f"[{__class__.__name__}] ({self.id}) {self.__dict__}"
+
+    def save(self):
+        """ save changes"""
+        self.updated_at = datetime.now().isoformat()
+
+    def to_dict(self):
+        """ returns a dictionary containing all keys/values of __dict__"""
+        d = self.__dict__
+        d["__class__"] = __class__.__name__
+        return d
