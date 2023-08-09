@@ -10,11 +10,18 @@ class HBNBCommand(cmd.Cmd):
     file = None
 
     def do_quit(self, line):
-        """Exit the program"""
-        exit()
+        """Quit to exit the program"""
+        print("")
+        return True
 
     def do_EOF(self, line):
+        """EOF to exit the program"""
+        print("")
         return True
+
+    def emptyline(self):
+        """Disables the repetition of the last command"""
+        pass
 
 
 
