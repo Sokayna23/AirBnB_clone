@@ -11,15 +11,16 @@ class BaseModel:
         """ init function"""
         
         if not kwargs:
+            #create a new object
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now().isoformat()
             self.updated_at = datetime.now().isoformat()
         else:
+            #restore from dict
             for key,value in kwargs.items():
                 if key != "__class__":
                     self.__dict__[key] = value
             
-            self.id = kwargs["id"]
             self.created_at = datetime.strptime(kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
             self.updated_at = datetime.strptime(kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
             
