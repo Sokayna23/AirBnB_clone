@@ -79,9 +79,41 @@ class HBNBCommand(cmd.Cmd):
                 if args[0] == v.__class__.__name__:
                     ss.append(str(v))
             print(ss)
+    @staticmethod
+    def CastedToType(v):
+        try:
+            v = int(v)
+            # print("it's a int")
+        except ValueError:
+            try:
+                v = float(v)
+                # print("it's a float")
+            except ValueError:
+                # print("it's a string")
+                pass
+        return v    
+    def do_update(self, _args):
+        """Updates an instance based on the class name and id"""
+        args = _args.split()
+        if len(args) == 0:
+            print("** class name missing **")
+        elif args[0] not in HBNBCommand.classesnames:
+            print("** class doesn't exist **")
+        elif len(args) == 1:
+            print("** instance id missing **")
+        elif f"{args[0]}.{args[1]}" not in models.storage.all():
+            print("** no instance found **")
+        elif len(args) == 2:
+            print("** attribute name missing **")
+        elif len(args) == 3:
+            print("** value missing **")         
+        else:
+            obj = models.storage.all()[f"{args[0]}.{args[1]}"]
+            setattr(obj, args[2], self.CastedToType(args[3]))
+        models.storage.save()
+           
             
-            
-
+#basename id attri value
 
 
 
