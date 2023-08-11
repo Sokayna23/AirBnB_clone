@@ -18,7 +18,7 @@ class BaseModel:
             models.storage.new(self)
         else:
             # restore from dict
-            print("restoring object from dict")
+            # print("restoring object from dict")
             for key, value in kwargs.items():
                 if key != "__class__":
                     self.__dict__[key] = value
