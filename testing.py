@@ -1,16 +1,11 @@
 #!/usr/bin/python3
+from models.base_model import BaseModel
 
-v = "-78.0"
-def CastedToType(v):
-    try:
-        v = int(v)
-        print("it's a int")
-    except ValueError:
-        try:
-            v = float(v)
-            print("it's a float")
-        except ValueError:
-            print("it's a string")
-            pass
-    return v
-print(CastedToType("az"))
+print("--------------------------__---------")
+b1 = BaseModel()
+print(" b1 ID : " + b1.id)
+d1 = b1.to_dict()
+print(" d1_dict   ")
+print(d1)
+b2 = BaseModel(**d1)
+print("b2 ID: " + b2.id)
