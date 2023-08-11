@@ -23,7 +23,32 @@ class HBNBCommand(cmd.Cmd):
             'Place': Place,
             'Review': Review
         }
-    
+   
+    def splitter(self,ss, delimter=" \t\n\v\r\f"):
+        list_of_strings = []
+        oneword =""
+        inside_quote = False
+        for i in range(len(ss)):
+            c = ss[i]
+            if c == '"':
+                if ss[i-1] != "\\":
+                    if inside_quote:
+                        inside_quote = False
+                    else:
+                        inside_quote = True
+                    continue
+                else:
+                    pass
+            if c in delimter and not inside_quote:
+                if(oneword != ""):
+                    list_of_strings.append(oneword)
+                oneword = ""
+                continue
+            if c != "\\":
+                oneword += c
+        if len(oneword) != 0:
+            list_of_strings.append(oneword)
+        return list_of_strings  
     def do_quit(self, line):
         """Quit to exit the program"""
         print("")
@@ -40,7 +65,7 @@ class HBNBCommand(cmd.Cmd):
     
     def do_create(self, _args):
         """Creates a new instance from class name"""
-        args = _args.split()
+        args =  self.splitter(_args)
         if len(args) == 0:
             print("** class name missing **")
         elif args[0] not in HBNBCommand.classesnames:
@@ -50,7 +75,7 @@ class HBNBCommand(cmd.Cmd):
             models.storage.save()
     def do_show(self, _args):
         """Prints the string representation of an instance based on the class name and id"""
-        args = _args.split()
+        args = self.splitter(_args)
         if len(args) == 0:
             print("** class name missing **")
         elif args[0] not in HBNBCommand.classesnames:
@@ -63,7 +88,7 @@ class HBNBCommand(cmd.Cmd):
             print(models.storage.all()[f"{args[0]}.{args[1]}"])
     def do_destroy(self, _args):
         """Deletes an instance based on the class name and id"""
-        args = _args.split()
+        args = self.splitter(_args)
         if len(args) == 0:
             print("** class name missing **")
         elif args[0] not in HBNBCommand.classesnames:
@@ -77,7 +102,7 @@ class HBNBCommand(cmd.Cmd):
             models.storage.save()
     def do_all(self, _args):
         """Prints all string representation of all instances based or not on the class name"""
-        args = _args.split()
+        args = self.splitter(_args)
         if len(args) == 0:
             # prints all
             ss = []
@@ -108,7 +133,7 @@ class HBNBCommand(cmd.Cmd):
         return v    
     def do_update(self, _args):
         """Updates an instance based on the class name and id"""
-        args = _args.split()
+        args = self.splitter(_args)
         if len(args) == 0:
             print("** class name missing **")
         elif args[0] not in HBNBCommand.classesnames:

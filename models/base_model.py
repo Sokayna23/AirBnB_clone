@@ -30,7 +30,7 @@ class BaseModel:
 
     def __str__(self):
         """ str function"""
-        return f"[{__class__.__name__}] ({self.id}) {self.__dict__}"
+        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
         """ save changes"""
@@ -40,7 +40,7 @@ class BaseModel:
     def to_dict(self):
         """ returns a dictionary containing all keys/values of __dict__"""
         d = self.__dict__.copy()
-        d["__class__"] = __class__.__name__
+        d["__class__"] = self.__class__.__name__
         d["created_at"] = self.created_at.isoformat()
         d["updated_at"] = self.updated_at.isoformat()
         return d
