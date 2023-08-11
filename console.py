@@ -3,13 +3,27 @@
 import cmd
 from models.base_model import BaseModel
 import models
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
     """HBNBCommand class"""
     prompt = '(hbnb) '
     file = None
-    classesnames = {"BaseModel":BaseModel}
-
+    classesnames = {
+            'BaseModel': BaseModel,
+            'User': User,
+            'State': State,
+            'City': City,
+            'Amenity': Amenity,
+            'Place': Place,
+            'Review': Review
+        }
+    
     def do_quit(self, line):
         """Quit to exit the program"""
         print("")
