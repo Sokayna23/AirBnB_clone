@@ -31,7 +31,7 @@ class User_Testing(unittest.TestCase):
         testing password
         """
         u1 = User()
-        self.assertEqual(u1.password, "")   
+        self.assertEqual(u1.password, "")
 
     def test_4(self):
         """
@@ -46,4 +46,3 @@ class User_Testing(unittest.TestCase):
         """
         u1 = User()
         self.assertEqual(u1.last_name, "")
-
