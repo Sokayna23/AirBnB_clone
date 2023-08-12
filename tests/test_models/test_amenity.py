@@ -20,4 +20,4 @@ class Amenity_Testing(unittest.TestCase):
         testing email
         """
         u1 = Amenity()
-        self.assertEqual(u1.name, "")    
+        self.assertEqual(u1.name, "")
