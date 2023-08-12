@@ -22,7 +22,7 @@ Quit command to exit the program\
 (hbnb) \
 (hbnb) \
 (hbnb) quit\
-\
+
 
 ## how to use it ?
 
