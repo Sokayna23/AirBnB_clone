@@ -11,8 +11,8 @@ After changing the current directory to the folder "AirBnB_clone" , just type in
 ~/AirBnb$ ./console.py\
 (hbnb) help\
 
-#### Documented commands (type help <topic>):
-========================================
+### Documented commands (type help <topic>):\
+========================================\
 EOF  help  quit\
 \
 (hbnb) \
