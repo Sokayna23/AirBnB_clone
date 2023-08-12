@@ -14,3 +14,10 @@ class Amenity_Testing(unittest.TestCase):
         b1 = Amenity()
         b2 = Amenity()
         self.assertNotEqual(b1.id, b2.id)
+
+    def test_2(self):
+        """
+        testing email
+        """
+        u1 = Amenity()
+        self.assertEqual(u1.name, "")    
