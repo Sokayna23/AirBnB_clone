@@ -9,10 +9,10 @@
 you can start using this project by running the console.py
 After changing the current directory to the folder "AirBnB_clone" , just type in your terminal :
 ~/AirBnb$ ./console.py\
-(hbnb) help\
+(hbnb) help
 
-### Documented commands (type help <topic>):
-##### ========================================
+###### Documented commands (type help <topic>):
+###### ========================================
 EOF  help  quit
 
 (hbnb) \
