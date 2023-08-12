@@ -1,11 +1,14 @@
 #!/usr/bin/python3
-"""Module that defines User class."""
+"""
+Module that defines User class.
+"""
 from models.base_model import BaseModel
 
 
 class User(BaseModel):
     """
     User class that inherits from BaseModel.
+
     Attributes:
         email (str): email of the user
         password (str): password of the user
@@ -19,4 +22,11 @@ class User(BaseModel):
     last_name = ""
 
     def __init__(self, *args, **kwargs):
+        """
+        init constructor
+
+        Args:
+        args(dict): args
+        kwargs(dict): keyword args
+        """
         super().__init__(*args, **kwargs)
