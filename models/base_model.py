@@ -6,10 +6,28 @@ import models
 
 
 class BaseModel:
-    """ class BaseModel"""
+    """ class BaseModel
+
+    Attributes:
+    id(str): unique id
+    created_at(datetime): time of creation
+    updated_at(datetime): time of updating
+
+    Methods:
+    __str__ : return class name
+    save: save
+    to_dict: return dict representation
+
+    """
 
     def __init__(self, *args, **kwargs):
-        """ init function"""
+        """ init function
+
+        Args:
+        args: args
+        kwargs: keywords args
+
+        """
         if len(kwargs) == 0:
             # create a new object
             self.id = str(uuid.uuid4())

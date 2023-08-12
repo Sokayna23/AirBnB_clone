@@ -13,7 +13,12 @@ import re
 
 
 class HBNBCommand(cmd.Cmd):
-    """HBNBCommand class"""
+    """HBNBCommand class
+
+    Attributes:
+        prompt(str): the prompt
+        classesnames(dict): all classes
+    """
     prompt = '(hbnb) '
     file = None
     classesnames = {
@@ -28,7 +33,11 @@ class HBNBCommand(cmd.Cmd):
 
     @staticmethod
     def ReshapeCommand(s):
-        """ convert <class name>.<command>() to <command> <class name>"""
+        """ convert <class name>.<command>() to <command> <class name>
+
+        Args:
+        s(str): string to reshape
+        """
         if not re.match(r'\s*\w+\.\w+\(.*\)\s*$', s):
             # print("not a valid command")
             return [s]
@@ -60,6 +69,12 @@ class HBNBCommand(cmd.Cmd):
         return valid_comd_list
 
     def splitter(self, ss, delimter=" \t\n\v\r\f"):
+        """split string according to delimter
+
+        Args:
+        ss(str): string
+        delimter(str): delimter
+        """
         list_of_strings = []
         oneword = ""
         inside_quote = False
@@ -86,21 +101,35 @@ class HBNBCommand(cmd.Cmd):
         return list_of_strings
 
     def do_quit(self, line):
-        """Quit to exit the program"""
+        """Quit to exit the program
+
+        Args:
+        line(str): string
+        """
         print("")
         return True
 
     def do_EOF(self, line):
-        """EOF to exit the program"""
+        """EOF to exit the program
+
+        Args:
+        line(str): string
+        """
         print("")
         return True
 
     def emptyline(self):
-        """Disables the repetition of the last command"""
+        """
+        Disables the repetition of the last command
+        """
         pass
 
     def do_create(self, _args):
-        """Creates a new instance from class name"""
+        """Creates a new instance from class name
+
+        Args:
+        _args(str): string
+        """
         args = self.splitter(_args)
         if len(args) == 0:
             print("** class name missing **")
@@ -111,7 +140,10 @@ class HBNBCommand(cmd.Cmd):
             models.storage.save()
 
     def do_show(self, _args):
-        """Prints the string representation of an instance based class/id"""
+        """Prints the string representation of an instance based class/id
+
+        Args:
+        _args(str): string"""
         args = self.splitter(_args)
         if len(args) == 0:
             print("** class name missing **")
@@ -125,7 +157,10 @@ class HBNBCommand(cmd.Cmd):
             print(models.storage.all()[f"{args[0]}.{args[1]}"])
 
     def do_destroy(self, _args):
-        """Deletes an instance based on the class name and id"""
+        """Deletes an instance based on the class name and id
+
+        Args:
+        _args(str): string"""
         args = self.splitter(_args)
         if len(args) == 0:
             print("** class name missing **")
@@ -140,7 +175,10 @@ class HBNBCommand(cmd.Cmd):
             models.storage.save()
 
     def do_all(self, _args):
-        """Prints all string representation of all instances"""
+        """Prints all string representation of all instances
+
+        Args:
+        _args(str): string"""
         args = self.splitter(_args)
         if len(args) == 0:
             # prints all
@@ -160,7 +198,10 @@ class HBNBCommand(cmd.Cmd):
 
     @staticmethod
     def CastedToType(v):
-        """convert string to int or float or keep it a string"""
+        """convert string to int or float or keep it a string
+
+        Args:
+        _args(str): string"""
         try:
             v = int(v)
             # print("it's a int")
@@ -174,7 +215,10 @@ class HBNBCommand(cmd.Cmd):
         return v
 
     def do_update(self, _args):
-        """Updates an instance based on the class name and id"""
+        """Updates an instance based on the class name and id
+
+        Args:
+        _args(str): string"""
         args = self.splitter(_args)
         if len(args) == 0:
             print("** class name missing **")
@@ -194,7 +238,10 @@ class HBNBCommand(cmd.Cmd):
         models.storage.save()
 
     def do_count(self, _args):
-        """count instances's number of a class"""
+        """count instances's number of a class
+
+        Args:
+        _args(str): string"""
         args = self.splitter(_args)
         nb = 0
         for k, v in models.storage.all().items():
@@ -203,7 +250,10 @@ class HBNBCommand(cmd.Cmd):
         print(nb)
 
     def default(self, _args):
-        """default commands handling"""
+        """default commands handling
+
+        Args:
+        _args(str): string"""
         all_cmd = self.ReshapeCommand(_args)
         if (all_cmd == [_args]):
             print(f"*** Unknown syntax: {_args}")
@@ -213,7 +263,10 @@ class HBNBCommand(cmd.Cmd):
 
 
 def gvs(ss):
-    """quote the string when there is a whitespace in it"""
+    """quote the string when there is a whitespace in it
+
+        Args:
+        ss(str): string"""
     if not isinstance(ss, str):
         return ss
     for c in ss:
