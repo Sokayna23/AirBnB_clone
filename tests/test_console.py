@@ -2,10 +2,12 @@
 """testing BaseModel"""
 from models.base_model import BaseModel
 import unittest
+import console
 
-
-class BaseModel_Testing(unittest.TestCase):
-    """ """
+class Console_Testing(unittest.TestCase):
+    """
+    testing console
+    """
 
     def test_1(self):
         """ testing if a unique id was generated"""
