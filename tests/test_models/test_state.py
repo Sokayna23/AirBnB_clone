@@ -14,3 +14,8 @@ class State_Testing(unittest.TestCase):
         b1 = State()
         b2 = State()
         self.assertNotEqual(b1.id, b2.id)
+
+    def test_2(self):
+        """ testing if a unique id was generated"""
+        b1 = State()
+        self.assertNotEqual(b1.name, "")
