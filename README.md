@@ -1,5 +1,6 @@
 # AirBnB clone - The console
-![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D/20230812/us-east-1/s3/aws4_request&X-Amz-Date=20230812T131322Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=951561c6d6b58917290a2a332fb7f9b4c25da1a489f02c9f19eca2031b9a03de)
+
+![](https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg)
 
 **AirBnB clone project**  is a replica of the famous **AirBnb** solution, it doesn't include all features but only the basics one. the user can interact with this replica using only CLI instead of graphic interface.
 
