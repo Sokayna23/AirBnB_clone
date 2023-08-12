@@ -6,10 +6,28 @@ import models
 
 
 class BaseModel:
-    """ class BaseModel"""
+    """ class BaseModel
+
+    Attributes:
+    id(str): unique id
+    created_at(datetime): time of creation
+    updated_at(datetime): time of updating
+
+    Methods:
+    __str__ : return class name
+    save: save
+    to_dict: return dict representation
+
+    """
 
     def __init__(self, *args, **kwargs):
-        """ init function"""
+        """ init function
+
+        Args:
+        args: args
+        kwargs: keywords args
+
+        """
         if len(kwargs) == 0:
             # create a new object
             self.id = str(uuid.uuid4())
@@ -30,7 +48,7 @@ class BaseModel:
 
     def __str__(self):
         """ str function"""
-        return f"[{__class__.__name__}] ({self.id}) {self.__dict__}"
+        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
         """ save changes"""
@@ -40,7 +58,7 @@ class BaseModel:
     def to_dict(self):
         """ returns a dictionary containing all keys/values of __dict__"""
         d = self.__dict__.copy()
-        d["__class__"] = __class__.__name__
+        d["__class__"] = self.__class__.__name__
         d["created_at"] = self.created_at.isoformat()
         d["updated_at"] = self.updated_at.isoformat()
         return d
