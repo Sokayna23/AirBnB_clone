@@ -50,27 +50,56 @@ for t in ts:
     """
 
 import re
+
+def gvs(ss):
+    """gvs = get valid string;quote the string when there is a whitespace in it"""
+    if not isinstance(ss,str):
+        return ss
+    for c in ss:
+        if c.isspace() and (ss[0]!='"' or ss[-1]!='"'):
+            return f'"{ss}"'
+    return ss
+
 def ReshapeCommand(s):
     """ convert <class name>.<command>() to <command> <class name>"""
-    print(re.match(r'\s*\w+\.\w+\(.*\)\s*$',ss).group())
-    if re.match(r'\s*\w+\.\w+\(.*\)\s*$',ss) == None:
-        print("not a command")
-        return
+    if re.match(r'\s*\w+\.\w+\(.*\)\s*$',s) == None:
+        #print("not a valid command")
+        return [s]
+    valid_comd_list =[]
     fs = s.split(".")
     first = fs[0].lstrip()
     function_args = s[s.find("(")+1:s.rfind(")")].strip()
     second = fs[1].split("(")[0]
-    print("first#"+first+"#")
-    print("second#"+second+"#")
-    print("argument#"+function_args+"#")
-ss = "User.cmd( {er:''})  "
-#ReshapeCommand(ss)
+    args=""
+    if function_args != "":
+        try:
+            args_dic = eval(function_args)
+            if isinstance(args_dic,tuple):
+                for e in args_dic:
+                    s_e = e
+                    if isinstance(e,dict) :
+                        for k,v in e.items():
+                            comand= f'{second} {first} {args_dic[0]} {gvs(k)} {gvs(v)}'
+                            valid_comd_list.append(comand)
+                        return valid_comd_list
+                    args+= f' {gvs(str(s_e))}'
+            else:
+                args += str(args_dic)
+        except Exception as e:
+            print("can't parse function args:"+str(e))
+            return [s]
+    valid_comd_list.append(f"{second} {first} {args}")
+    return valid_comd_list
 
-ss ="User.all(4,n4, 'kjj')    "
+ss = """User.update2("38f22813-2753-4d42-b37c-57a17f1e4f88", {'first_name': "John", "age": 89})"""
+ss1="""User.update("38f22813-2753-4d42-b37c-57a17f1e4f88", "first_name", "John")"""
+ss11="""User.update("38f22813-2753-4d42-b37c-57a17f1e4f88", "first_name", "John smith")"""
+ss2 = """User.all()"""
+ss3= """User.count()"""
+ss4= """User.show(45)"""
+ss5  ="""User.update(3f88b79a-e851-4711-8b8a-b3c044efb1ee, moi, "abdel mo")"""
+ss6 ="""add"""
+cc = ReshapeCommand(ss6)
+for i in cc:
+    print(i)
 
-ma = re.match("\s*\w+\.\w+\(.*\)\s*$",ss)
-print(ma)
-if   ma != None:
-    print("it's a valide command")
-else:
-    print("not command")
