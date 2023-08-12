@@ -12,7 +12,7 @@ After changing the current directory to the folder "AirBnB_clone" , just type in
 (hbnb) help\
 
 ### Documented commands (type help <topic>):\
-========================================\
+##### ========================================\
 EOF  help  quit\
 \
 (hbnb) \
