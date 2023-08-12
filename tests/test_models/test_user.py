@@ -25,24 +25,6 @@ class User_Testing(unittest.TestCase):
         """
         u1 = User()
         self.assertEqual(u1.email, "")
-
-    def test_3(self):
-        """
-        testing password
-        """
-        u1 = User()
         self.assertEqual(u1.password, "")
-
-    def test_4(self):
-        """
-        testing first_name
-        """
-        u1 = User()
         self.assertEqual(u1.first_name, "")
-
-    def test_5(self):
-        """
-        testing last_name
-        """
-        u1 = User()
         self.assertEqual(u1.last_name, "")
