@@ -14,4 +14,7 @@ class City(BaseModel):
     name = ""
 
     def __init__(self, *args, **kwargs):
+        """
+        init constructer
+        """
         super().__init__(*args, **kwargs)
