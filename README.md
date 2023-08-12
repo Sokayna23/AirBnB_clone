@@ -13,15 +13,15 @@ After changing the current directory to the folder "AirBnB_clone" , just type in
 
 ### Documented commands (type help <topic>):
 ##### ========================================
-EOF  help  quit\
-\
+EOF  help  quit
+
 (hbnb) \
 (hbnb) help quit\
 Quit command to exit the program\
 \
 (hbnb) \
 (hbnb) \
-(hbnb) quit\
+(hbnb) quit
 
 
 ## how to use it ?
