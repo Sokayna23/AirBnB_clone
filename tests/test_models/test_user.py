@@ -2,11 +2,11 @@
 """
 testing BaseModel
 """
-from models.base_model import BaseModel
+from models.user import User
 import unittest
 
 
-class BaseModel_Testing(unittest.TestCase):
+class User_Testing(unittest.TestCase):
     """
     testing user class
     """
@@ -15,6 +15,6 @@ class BaseModel_Testing(unittest.TestCase):
         """
         testing if a unique id was generated
         """
-        b1 = BaseModel()
-        b2 = BaseModel()
+        b1 = User()
+        b2 = User()
         self.assertNotEqual(b1.id, b2.id)
