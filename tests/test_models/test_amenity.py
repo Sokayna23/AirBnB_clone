@@ -1,14 +1,16 @@
 #!/usr/bin/python3
 """testing BaseModel"""
-from models.base_model import BaseModel
+from models.amenity import Amenity
 import unittest
 
 
-class BaseModel_Testing(unittest.TestCase):
-    """ """
+class Amenity_Testing(unittest.TestCase):
+    """
+    testing Aminity
+    """
 
     def test_1(self):
         """ testing if a unique id was generated"""
-        b1 = BaseModel()
-        b2 = BaseModel()
+        b1 = Amenity()
+        b2 = Amenity()
         self.assertNotEqual(b1.id, b2.id)
