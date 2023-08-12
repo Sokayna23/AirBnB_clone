@@ -8,21 +8,21 @@
 
 you can start using this project by running the console.py
 After changing the current directory to the folder "AirBnB_clone" , just type in your terminal :
-~/AirBnb$ ./console.py
-(hbnb) help
+~/AirBnb$ ./console.py\
+(hbnb) help\
 
 #### Documented commands (type help <topic>):
 ========================================
-EOF  help  quit
-
-(hbnb) 
-(hbnb) help quit
-Quit command to exit the program
-
-(hbnb) 
-(hbnb) 
-(hbnb) quit
-
+EOF  help  quit\
+\
+(hbnb) \
+(hbnb) help quit\
+Quit command to exit the program\
+\
+(hbnb) \
+(hbnb) \
+(hbnb) quit\
+\
 ---------------------------------------- 
 
 ## how to use it ?
