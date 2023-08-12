@@ -4,7 +4,22 @@ from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    """Place class."""
+    """
+    Place class.
+
+    Attributes:
+        city_id(str) : string
+        user_id(str) : string
+        name(str) : string
+        description(str) : string
+        number_rooms(int) : int
+        number_bathrooms(str) : string
+        max_guest(int) : int
+        price_by_night(int) : int
+        latitude(int) : int
+        longitude(int) : int
+        amenity_id(list) : list
+    """
     city_id = ""
     user_id = ""
     name = ""
@@ -18,5 +33,7 @@ class Place(BaseModel):
     amenity_ids = []
 
     def __init__(self, *args, **kwargs):
-        """Instantiation"""
+        """
+        Instantiation
+        """
         super().__init__(*args, **kwargs)
