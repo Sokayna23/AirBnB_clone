@@ -4,6 +4,7 @@ from models.base_model import BaseModel
 import unittest
 import console
 
+
 class Console_Testing(unittest.TestCase):
     """
     testing console
