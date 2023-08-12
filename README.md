@@ -30,7 +30,7 @@ Quit command to exit the program
 once the console is started, you can type one of the commands bellow to intercat with program:
 - **quit** : to quit the program
 - **create [class name]** : Creates a new instance of particular class, saves it (to the JSON file) and prints the id.
-- Ex: $ create BaseModel.
+  Ex: $ create BaseModel.
 -  **show** : Prints the string representation of an instance based on the class name and id.
 -  Ex: $ show BaseModel 1234-1234-1234.
 - **destroy** : Deletes an instance based on the class name and id (save the change into the JSON file).
