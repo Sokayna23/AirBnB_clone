@@ -15,11 +15,11 @@ class BaseModel_Testing(unittest.TestCase):
         self.assertNotEqual(b1.id, b2.id)
 
     def test_2(self):
-        """ test: creating object from another"""
+        """ test: save method"""
         b1 = BaseModel()
-        d1 = b1.to_dict()
-        b2 = BaseModel(d1)
-        self.assertEqual(b1.id, b2.id)
+        up1 = b1.updated_at
+        b1.save()
+        self.assertEqual(b1.updated_at, up1)
 
     def test_3(self):
         """ test: type of attributes"""
