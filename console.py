@@ -56,14 +56,14 @@ class HBNBCommand(cmd.Cmd):
                         if isinstance(e, dict):
                             for k, v in e.items():
                                 comand = f'{second} {first} '
-                                comand += '{args_dic[0]} {gvs(k)} {gvs(v)}'
+                                comand += f'{args_dic[0]} {gvs(k)} {gvs(v)}'
                                 valid_comd_list.append(comand)
                             return valid_comd_list
                         args += f' {gvs(str(s_e))}'
                 else:
                     args += str(args_dic)
             except Exception as e:
-                print("can't parse function args:" + str(e))
+                # print("can't parse function args:" + str(e))
                 return [s]
         valid_comd_list.append(f"{second} {first} {args}")
         return valid_comd_list
@@ -255,7 +255,7 @@ class HBNBCommand(cmd.Cmd):
         Args:
         _args(str): string"""
         all_cmd = self.ReshapeCommand(_args)
-        if (all_cmd == [_args]):
+        if (all_cmd == [_args] or all_cmd == []):
             print(f"*** Unknown syntax: {_args}")
             return False
         for cm in all_cmd:
