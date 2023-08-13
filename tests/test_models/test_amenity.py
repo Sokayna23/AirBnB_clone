@@ -2,6 +2,7 @@
 """testing BaseModel"""
 from models.amenity import Amenity
 import unittest
+import models
 
 
 class Amenity_Testing(unittest.TestCase):

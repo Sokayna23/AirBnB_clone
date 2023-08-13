@@ -2,6 +2,7 @@
 """testing BaseModel"""
 from models.city import City
 import unittest
+import models
 
 
 class City_Testing(unittest.TestCase):
@@ -20,8 +21,8 @@ class City_Testing(unittest.TestCase):
         testing name
         """
         u1 = City()
-        self.assertIsNotNone(Amenity.__doc__)
-        self.assertIsNotNone(models.amenity.__doc__)
+        self.assertIsNotNone(City.__doc__)
+        self.assertIsNotNone(models.city.__doc__)
         self.assertEqual(u1.name, "")
         self.assertTrue(hasattr(u1,"name"))
         self.assertTrue(isinstance(u1.name,str))
