@@ -24,8 +24,8 @@ class City_Testing(unittest.TestCase):
         self.assertIsNotNone(City.__doc__)
         self.assertIsNotNone(models.city.__doc__)
         self.assertEqual(u1.name, "")
-        self.assertTrue(hasattr(u1,"name"))
-        self.assertTrue(isinstance(u1.name,str))
+        self.assertTrue(hasattr(u1, "name"))
+        self.assertTrue(isinstance(u1.name, str))
 
     def test_3(self):
         """
@@ -33,5 +33,5 @@ class City_Testing(unittest.TestCase):
         """
         u1 = City()
         self.assertEqual(u1.state_id, "")
-        self.assertTrue(hasattr(u1,"state_id"))
-        self.assertTrue(isinstance(u1.state_id,str))
+        self.assertTrue(hasattr(u1, "state_id"))
+        self.assertTrue(isinstance(u1.state_id, str))

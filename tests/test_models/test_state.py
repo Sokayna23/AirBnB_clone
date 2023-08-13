@@ -23,5 +23,5 @@ class State_Testing(unittest.TestCase):
         self.assertIsNotNone(models.state.__doc__)
 
         self.assertEqual(b1.name, "")
-        self.assertTrue(isinstance(b1.name,str))
-        self.assertTrue(hasattr(b1,"name"))
+        self.assertTrue(isinstance(b1.name, str))
+        self.assertTrue(hasattr(b1, "name"))

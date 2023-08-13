@@ -6,6 +6,7 @@ from models.user import User
 import unittest
 import models
 
+
 class User_Testing(unittest.TestCase):
     """
     testing user class
@@ -32,12 +33,12 @@ class User_Testing(unittest.TestCase):
         self.assertEqual(u1.first_name, "")
         self.assertEqual(u1.last_name, "")
 
-        self.assertTrue(isinstance(u1.email,str))
-        self.assertTrue(isinstance(u1.password,str))
-        self.assertTrue(isinstance(u1.first_name,str))
-        self.assertTrue(isinstance(u1.last_name,str))
-        
-        self.assertTrue(hasattr(u1,"email"))
-        self.assertTrue(hasattr(u1,"password"))
-        self.assertTrue(hasattr(u1,"first_name"))
-        self.assertTrue(hasattr(u1,"last_name"))
+        self.assertTrue(isinstance(u1.email, str))
+        self.assertTrue(isinstance(u1.password, str))
+        self.assertTrue(isinstance(u1.first_name, str))
+        self.assertTrue(isinstance(u1.last_name, str))
+
+        self.assertTrue(hasattr(u1, "email"))
+        self.assertTrue(hasattr(u1, "password"))
+        self.assertTrue(hasattr(u1, "first_name"))
+        self.assertTrue(hasattr(u1, "last_name"))
