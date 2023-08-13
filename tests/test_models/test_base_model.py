@@ -3,6 +3,7 @@
 from models.base_model import BaseModel
 import unittest
 from datetime import datetime
+from time import sleep
 
 
 class BaseModel_Testing(unittest.TestCase):
@@ -17,9 +18,11 @@ class BaseModel_Testing(unittest.TestCase):
     def test_2(self):
         """ test: save method"""
         b1 = BaseModel()
-        up1 = b1.updated_at
+        up1 = b1.updated_at.isoformat()
+        sleep(2)
         b1.save()
-        self.assertEqual(b1.updated_at, up1)
+        up2 = b1.updated_at.isoformat()
+        self.assertNotEqual(up2, up1)
 
     def test_3(self):
         """ test: type of attributes"""
