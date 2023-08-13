@@ -23,11 +23,14 @@ class Console_Testing(unittest.TestCase):
                 self.assertIsNotNone(getattr(console, m).__doc__)
     
     def test_3(self):
-        """testing validty of uuid"""
-        with patch("sys.stdout", new=StringIO()) as f:
-                    HBNBCommand().onecmd("create Place")
-                    result = f.getvalue().strip()
-                    try:
-                        uuid.UUID(result)
-                    except ValueError:
-                        self.fail("not a valid uuid")
+        """testing validty of uuid for all classes"""
+        classes = ["BaseModel","User","City","State","Amenity",
+                   "Review","Place"]
+        for cl in classes:
+            with patch("sys.stdout", new=StringIO()) as f:
+                        HBNBCommand().onecmd(f"create {cl}")
+                        result = f.getvalue().strip()
+                        try:
+                            uuid.UUID(result)
+                        except ValueError:
+                            self.fail(f"not a valid uuid for {cl}")
