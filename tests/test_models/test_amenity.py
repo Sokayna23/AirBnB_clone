@@ -21,3 +21,7 @@ class Amenity_Testing(unittest.TestCase):
         """
         u1 = Amenity()
         self.assertEqual(u1.name, "")
+        self.assertTrue(isinstance(u1.name, str))
+        self.assertTrue(hasattr(u1,"name"))
+        self.assertIsNotNone(Amenity.__doc__)
+        self.assertIsNotNone(models.amenity.__doc__)
