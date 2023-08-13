@@ -23,7 +23,7 @@ class Console_Testing(unittest.TestCase):
                 self.assertIsNotNone(getattr(console, m).__doc__)
     
     def test_3(self):
-        """testing validty of uuid for all classes"""
+        """testing create for all classes"""
         classes = ["BaseModel","User","City","State","Amenity",
                    "Review","Place"]
         for cl in classes:
