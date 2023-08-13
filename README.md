@@ -1,81 +1,58 @@
-#0x00. AirBnB clone - The console
+# AirBnB clone - The console
+
+![](https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg)
+
+**AirBnB clone project**  is a replica of the famous **AirBnb** solution, it doesn't include all features but only the basics one. the user can interact with this replica using only CLI instead of graphic interface.
+
+## how to start it ?
+
+you can start using this project by running the console.py
+After changing the current directory to the folder "AirBnB_clone" , just type in your terminal :
+~/AirBnb$ ./console.py\
+(hbnb) help
+
+##### Documented commands (type help <topic>):
+##### ========================================
+EOF  help  quit
+
+(hbnb) \
+(hbnb) help quit\
+Quit command to exit the program\
+\
+(hbnb) \
+(hbnb) \
+(hbnb) quit
 
 
--------------------
-Background Context:
--------------------
-Welcome to the AirBnB clone project!
-Before starting, please read the AirBnB concept page.
+## how to use it ?
 
-First step: Write a command interpreter to manage your AirBnB objects.
-
-This is the first step towards building your first full web application: the AirBnB clone. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration…
-
-Each task is linked and will help you to:
-
-put in place a parent class (called BaseModel) to take care of the initialization, serialization and deserialization of your future instances
-create a simple flow of serialization/deserialization: Instance <-> Dictionary <-> JSON string <-> file
-create all classes used for AirBnB (User, State, City, Place…) that inherit from BaseModel
-create the first abstracted storage engine of the project: File storage.
-create all unittests to validate all our classes and storage engine
-What’s a command interpreter?
-Do you remember the Shell? It’s exactly the same but limited to a specific use-case. In our case, we want to be able to manage the objects of our project:
-
-Create a new object (ex: a new User or a new Place)
-Retrieve an object from a file, a database etc…
-Do operations on objects (count, compute stats, etc…)
-Update attributes of an object
-Destroy an object
-
--------------------
-Learning Objectives:
---------------------
-At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
-
-General:
----------
-How to create a Python package
-How to create a command interpreter in Python using the cmd module
-What is Unit testing and how to implement it in a large project
-How to serialize and deserialize a Class
-How to write and read a JSON file
-How to manage datetime
-What is an UUID
-What is *args and how to use it
-What is **kwargs and how to use it
-How to handle named arguments in a function
-
-
--------------
-Requirements:
--------------
-Python Scripts
-Allowed editors: vi, vim, emacs
-All your files will be interpreted/compiled on Ubuntu 20.04 LTS using python3 (version 3.8.5)
-All your files should end with a new line
-The first line of all your files should be exactly #!/usr/bin/python3
-A README.md file, at the root of the folder of the project, is mandatory
-Your code should use the pycodestyle (version 2.8.*)
-All your files must be executable
-The length of your files will be tested using wc
-All your modules should have a documentation (python3 -c 'print(__import__("my_module").__doc__)')
-All your classes should have a documentation (python3 -c 'print(__import__("my_module").MyClass.__doc__)')
-All your functions (inside and outside a class) should have a documentation (python3 -c 'print(__import__("my_module").my_function.__doc__)' and python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)')
-A documentation is not a simple word, it’s a real sentence explaining what’s the purpose of the module, class or method (the length of it will be verified)
-Python Unit Tests
-Allowed editors: vi, vim, emacs
-All your files should end with a new line
-All your test files should be inside a folder tests
-You have to use the unittest module
-All your test files should be python files (extension: .py)
-All your test files and folders should start by test_
-Your file organization in the tests folder should be the same as your project
-e.g., For models/base_model.py, unit tests must be in: tests/test_models/test_base_model.py
-e.g., For models/user.py, unit tests must be in: tests/test_models/test_user.py
-All your tests should be executed by using this command: python3 -m unittest discover tests
-You can also test file by file by using this command: python3 -m unittest tests/test_models/test_base_model.py
-All your modules should have a documentation (python3 -c 'print(__import__("my_module").__doc__)')
-All your classes should have a documentation (python3 -c 'print(__import__("my_module").MyClass.__doc__)')
-All your functions (inside and outside a class) should have a documentation (python3 -c 'print(__import__("my_module").my_function.__doc__)' and python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)')
-We strongly encourage you to work together on test cases, so that you don’t miss any edge case
-
+once the console is started, you can type one of the commands bellow to intercat with program:
+- **quit** : to quit the program
+- **create [class name]** : Creates a new instance of particular class, saves it (to the JSON file) and prints the id.\
+  Ex: $ create BaseModel.
+-  **show** : Prints the string representation of an instance based on the class name and id.\
+   Ex: $ show BaseModel 1234-1234-1234.
+- **destroy** : Deletes an instance based on the class name and id (save the change into the JSON file).\
+   Ex: $ destroy BaseModel 1234-1234-1234.
+- **all [class name]** : Prints all string representation of all instances based or not on the class name.\
+   Ex: $ all BaseModel or $ all.
+- **update** :  Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file).\
+ Ex: $ update BaseModel 1234-1234-1234 email "aibnb@mail.com".
+- **count [class name]** : Counts instances number of the given class name.
+## Examples :
+~/AirBnb_clone$ ./console.py\
+(hbnb) all MyModel\
+** class doesn't exist **\
+(hbnb) show BaseModel\
+** instance id missing **\
+(hbnb) show BaseModel My_First_Model\
+** no instance found **\
+(hbnb) create BaseModel\
+49faff9a-6318-451f-87b6-910505c55907\
+(hbnb) all BaseModel\
+["[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f-87b6-910505c55907', 'updated_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903300)}"]
+(hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907\
+[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f-87b6-910505c55907', 'updated_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903300)}
+(hbnb) update BaseModel 49faff9a-6318-451f-87b6-910505c55907 first_name "Betty"\
+(hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907\
+[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'first_name': 'Betty', 'id': '49faff9a-6318-451f-87b6-910505c55907', 'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 3, 49401)}

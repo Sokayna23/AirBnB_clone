@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 class BaseModel_Testing(unittest.TestCase):
-    """ """
+    """test for BaseModel """
 
     def test_1(self):
         """ testing if a unique id was generated"""

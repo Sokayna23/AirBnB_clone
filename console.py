@@ -258,7 +258,6 @@ class HBNBCommand(cmd.Cmd):
         if (all_cmd == [_args]):
             print(f"*** Unknown syntax: {_args}")
             return False
-        
         for cm in all_cmd:
             self.onecmd(cm)
 
