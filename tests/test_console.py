@@ -7,6 +7,7 @@ from console import HBNBCommand
 import console
 import uuid
 
+
 class Console_Testing(unittest.TestCase):
     """
     testing console
@@ -18,19 +19,19 @@ class Console_Testing(unittest.TestCase):
 
     def test_2(self):
         """ testing methods doc"""
-        for m in dir(console) :
+        for m in dir(console):
             if not m.startswith('_'):
                 self.assertIsNotNone(getattr(console, m).__doc__)
-    
+
     def test_3(self):
         """testing create for all classes"""
-        classes = ["BaseModel","User","City","State","Amenity",
-                   "Review","Place"]
+        classes = ["BaseModel", "User", "City", "State", "Amenity",
+                   "Review", "Place"]
         for cl in classes:
             with patch("sys.stdout", new=StringIO()) as f:
-                        HBNBCommand().onecmd(f"create {cl}")
-                        result = f.getvalue().strip()
-                        try:
-                            uuid.UUID(result)
-                        except ValueError:
-                            self.fail(f"not a valid uuid for {cl}")
+                HBNBCommand().onecmd(f"create {cl}")
+                result = f.getvalue().strip()
+                try:
+                    uuid.UUID(result)
+                except ValueError:
+                    self.fail(f"not a valid uuid for {cl}")

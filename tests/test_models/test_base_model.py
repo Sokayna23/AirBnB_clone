@@ -39,3 +39,12 @@ class BaseModel_Testing(unittest.TestCase):
             self.fail("BaseModel is not a class")
         except AttributeError:
             pass
+
+    def test_5(self):
+        """test: to_dict()"""
+        b = BaseModel()
+        d = b.to_dict()
+        self.assertIn("id", d)
+        self.assertIn("__class__", d)
+        self.assertIn("updated_at", d)
+        self.assertIn("created_at", d)
