@@ -48,3 +48,8 @@ class BaseModel_Testing(unittest.TestCase):
         self.assertIn("__class__", d)
         self.assertIn("updated_at", d)
         self.assertIn("created_at", d)
+
+    def test_6(self):
+        """testing doc"""
+        for m in dir(BaseModel):
+                self.assertIsNotNone(getattr(BaseModel, m).__doc__)
