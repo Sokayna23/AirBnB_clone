@@ -36,6 +36,7 @@ class FileStorage_testing(unittest.TestCase):
         self.assertTrue(models.storage.all()[key_name] is b)
 
     def test_save(self):
+        """testing save"""
         b = BaseModel()
         models.storage.new(b)
         models.storage.save()
@@ -44,7 +45,8 @@ class FileStorage_testing(unittest.TestCase):
         ss = f.read();
         self.assertIn("BaseModel." + b.id, ss)
 
-    def test_relod(self):
+    def test_reload(self):
+        """testing reload"""
         b = BaseModel()
         models.storage.new(b)
         models.storage.save()
