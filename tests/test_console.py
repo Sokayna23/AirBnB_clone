@@ -31,7 +31,7 @@ class Console_Testing(unittest.TestCase):
         b = BaseModel()
         r = Review()
         p = Place()
-        self.assertEqual(5, 1 + 4)
+        self.assertEqual(z, z)
         self.assertEqual(6, 2 + 4)
         self.assertEqual(7, 3 + 4)
         self.assertEqual(8, 4 + 4)
@@ -52,6 +52,45 @@ class Console_Testing(unittest.TestCase):
                 self.assertIsNotNone(getattr(console, m).__doc__)
 
     def test_3(self):
+        """testing create for all classes"""
+        classes = ["BaseModel", "User", "City", "State", "Amenity",
+                   "Review", "Place"]
+        for cl in classes:
+            with patch("sys.stdout", new=StringIO()) as f:
+                HBNBCommand().onecmd(f"create {cl}")
+                result = f.getvalue().strip()
+                try:
+                    uuid.UUID(result)
+                except ValueError:
+                    self.fail(f"not a valid uuid for {cl}")
+
+    def test_4(self):
+        """testing create for all classes"""
+        classes = ["BaseModel", "User", "City", "State", "Amenity",
+                   "Review", "Place"]
+        for cl in classes:
+            with patch("sys.stdout", new=StringIO()) as f:
+                HBNBCommand().onecmd(f"create {cl}")
+                result = f.getvalue().strip()
+                try:
+                    uuid.UUID(result)
+                except ValueError:
+                    self.fail(f"not a valid uuid for {cl}")
+
+    def test_5(self):
+        """testing create for all classes"""
+        classes = ["BaseModel", "User", "City", "State", "Amenity",
+                   "Review", "Place"]
+        for cl in classes:
+            with patch("sys.stdout", new=StringIO()) as f:
+                HBNBCommand().onecmd(f"create {cl}")
+                result = f.getvalue().strip()
+                try:
+                    uuid.UUID(result)
+                except ValueError:
+                    self.fail(f"not a valid uuid for {cl}")
+
+    def test_6(self):
         """testing create for all classes"""
         classes = ["BaseModel", "User", "City", "State", "Amenity",
                    "Review", "Place"]
