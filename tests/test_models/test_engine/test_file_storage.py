@@ -51,12 +51,26 @@ class FileStorage_testing(unittest.TestCase):
             ss = f.read()
         self.assertIn("BaseModel." + b.id, ss)
 
-    def test_reload(self):
+    def test_reload_user(self):
         """testing reload"""
         b = User()
         so = FileStorage()
         so.reload()
         self.assertIn("User." + b.id, so.all())
+
+    def test_reload_basemodel(self):
+        """testing reload"""
+        b = BaseModel()
+        so = FileStorage()
+        so.reload()
+        self.assertIn("BaseModel." + b.id, so.all())
+
+    def test_reload_city(self):
+        """testing reload"""
+        b = City()
+        so = FileStorage()
+        so.reload()
+        self.assertIn("City." + b.id, so.all())
 
 
 if __name__ == '__main__':
