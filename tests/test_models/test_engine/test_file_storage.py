@@ -44,6 +44,14 @@ class FileStorage_testing(unittest.TestCase):
         ss = f.read();
         self.assertIn("BaseModel." + b.id, ss)
 
+    def test_relod(self):
+        b = BaseModel()
+        models.storage.new(b)
+        models.storage.save()
+        so = FileStorage()
+        so.reload()
+        self.assertIn("BaseModel." + b.id, so.all())
+
 
 if __name__ == '__main__':
     unittest.main()
