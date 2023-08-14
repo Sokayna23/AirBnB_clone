@@ -12,7 +12,7 @@ from models.place import Place
 from models.review import Review
 from models.amenity import Amenity
 import models
-
+import os
 
 class FileStorage_testing(unittest.TestCase):
     """ Test: FileStorage class."""
@@ -76,6 +76,17 @@ class FileStorage_testing(unittest.TestCase):
             so = FileStorage()
             so.reload()
             self.assertIn(f"{k}." + b.id, so.all())
+
+    def test_attributes(self):
+        """test attributes"""
+        os.remove("file.json")
+        f_s = FileStorage()
+        # self.assertTrue(hasattr(f_s, "__file_path"))
+        # self.assertTrue(hasattr(f_s, "__objects"))
+        self.assertEqual(len(f_s.all()), 0)
+        b = BaseModel();
+        f_s.reload()
+        self.assertNotEqual(len(f_s.all()), 0)
 
 
 if __name__ == '__main__':
