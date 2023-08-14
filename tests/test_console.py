@@ -6,6 +6,14 @@ from io import StringIO
 from console import HBNBCommand
 import console
 import uuid
+from models.base_model import BaseModel
+from models.user import User
+from models.city import City
+from models.state import State
+from models.place import Place
+from models.review import Review
+from models.amenity import Amenity
+from models import storage
 
 
 class Console_Testing(unittest.TestCase):
