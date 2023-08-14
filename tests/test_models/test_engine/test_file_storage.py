@@ -24,7 +24,9 @@ class FileStorage_testing(unittest.TestCase):
 
     def test_doc_class(self):
         """test: documentation for the class FileStorage"""
-        self.assertIsNotNone(FileStorage.__doc__)
+        for m in dir(FileStorage):
+            if not m.startswith('_'):
+                self.assertIsNotNone(getattr(FileStorage, m).__doc__)
 
     def test_all(self):
         """test: all() method."""
