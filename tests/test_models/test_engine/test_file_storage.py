@@ -60,19 +60,22 @@ class FileStorage_testing(unittest.TestCase):
         so.reload()
         self.assertIn("User." + b.id, so.all())
 
-    def test_reload_basemodel(self):
+    def test_reload_all(self):
         """testing reload"""
-        b = BaseModel()
-        so = FileStorage()
-        so.reload()
-        self.assertIn("BaseModel." + b.id, so.all())
-
-    def test_reload_city(self):
-        """testing reload"""
-        b = City()
-        so = FileStorage()
-        so.reload()
-        self.assertIn("City." + b.id, so.all())
+        classes = {
+            'BaseModel': BaseModel,
+            'User': User,
+            'State': State,
+            'City': City,
+            'Amenity': Amenity,
+            'Place': Place,
+            'Review': Review
+        }
+        for k,v in classes.items():
+            b = v()
+            so = FileStorage()
+            so.reload()
+            self.assertIn(f"{k}." + b.id, so.all())
 
 
 if __name__ == '__main__':
