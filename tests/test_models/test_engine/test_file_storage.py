@@ -35,6 +35,15 @@ class FileStorage_testing(unittest.TestCase):
         self.assertIn(key_name, models.storage.all())
         self.assertTrue(models.storage.all()[key_name] is b)
 
+    def test_save(self):
+        b = BaseModel()
+        models.storage.new(b)
+        models.storage.save()
+        save_text = ""
+        f = open("file.json", "r")
+        ss = f.read();
+        self.assertIn("BaseModel." + b.id, ss)
+
 
 if __name__ == '__main__':
     unittest.main()
