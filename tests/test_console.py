@@ -23,23 +23,7 @@ class Console_Testing(unittest.TestCase):
 
     def test_tt(self):
         """checking an idea"""
-        z = self.__doc__
-        u = User()
-        c = City()
-        a = Amenity()
-        s = State()
-        b = BaseModel()
-        r = Review()
-        p = Place()
-        self.assertEqual(z, z)
-        self.assertEqual(6, 2 + 4)
-        self.assertEqual(7, 3 + 4)
-        self.assertEqual(8, 4 + 4)
-        self.assertEqual(9, 5 + 4)
-        self.assertEqual(10, 6 + 4)
-        self.assertEqual(11, 7 + 4)
-        self.assertEqual(12, 8 + 4)
-        self.assertEqual(13, 9 + 4)
+        self.assertEqual("(hbnb) ", HBNBCommand.prompt)
 
     def test_1(self):
         """ testing class doc"""
@@ -52,45 +36,6 @@ class Console_Testing(unittest.TestCase):
                 self.assertIsNotNone(getattr(console, m).__doc__)
 
     def test_3(self):
-        """testing create for all classes"""
-        classes = ["BaseModel", "User", "City", "State", "Amenity",
-                   "Review", "Place"]
-        for cl in classes:
-            with patch("sys.stdout", new=StringIO()) as f:
-                HBNBCommand().onecmd(f"create {cl}")
-                result = f.getvalue().strip()
-                try:
-                    uuid.UUID(result)
-                except ValueError:
-                    self.fail(f"not a valid uuid for {cl}")
-
-    def test_4(self):
-        """testing create for all classes"""
-        classes = ["BaseModel", "User", "City", "State", "Amenity",
-                   "Review", "Place"]
-        for cl in classes:
-            with patch("sys.stdout", new=StringIO()) as f:
-                HBNBCommand().onecmd(f"create {cl}")
-                result = f.getvalue().strip()
-                try:
-                    uuid.UUID(result)
-                except ValueError:
-                    self.fail(f"not a valid uuid for {cl}")
-
-    def test_5(self):
-        """testing create for all classes"""
-        classes = ["BaseModel", "User", "City", "State", "Amenity",
-                   "Review", "Place"]
-        for cl in classes:
-            with patch("sys.stdout", new=StringIO()) as f:
-                HBNBCommand().onecmd(f"create {cl}")
-                result = f.getvalue().strip()
-                try:
-                    uuid.UUID(result)
-                except ValueError:
-                    self.fail(f"not a valid uuid for {cl}")
-
-    def test_6(self):
         """testing create for all classes"""
         classes = ["BaseModel", "User", "City", "State", "Amenity",
                    "Review", "Place"]
