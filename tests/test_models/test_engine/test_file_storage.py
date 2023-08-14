@@ -5,6 +5,12 @@
 import unittest
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
+from models.user import User
+from models.city import City
+from models.state import State
+from models.place import Place
+from models.review import Review
+from models.amenity import Amenity
 import models
 
 
@@ -40,17 +46,17 @@ class FileStorage_testing(unittest.TestCase):
         b = BaseModel()
         models.storage.new(b)
         models.storage.save()
-        save_text = ""
-        f = open("file.json", "r")
-        ss = f.read();
+        ss = ""
+        with open("file.json", "r") as f:
+            ss = f.read();
         self.assertIn("BaseModel." + b.id, ss)
 
     def test_reload(self):
         """testing reload"""
-        b = BaseModel()
+        b = User()
         so = FileStorage()
         so.reload()
-        self.assertIn("BaseModel." + b.id, so.all())
+        self.assertIn("User." + b.id, so.all())
 
 
 if __name__ == '__main__':
