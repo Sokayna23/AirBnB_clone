@@ -52,4 +52,6 @@ class BaseModel_Testing(unittest.TestCase):
     def test_6(self):
         """testing doc"""
         for m in dir(BaseModel):
-                self.assertIsNotNone(getattr(BaseModel, m).__doc__)
+            if not m.startswith("_"):
+                dc = getattr(BaseModel, m).__doc__
+                self.assertIsNotNone(dc, "this method have not a doc " + m)

@@ -5,6 +5,7 @@
 import unittest
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
+import models
 
 
 class FileStorage_testing(unittest.TestCase):
@@ -13,16 +14,16 @@ class FileStorage_testing(unittest.TestCase):
 
     def test_doc_module(self):
         """test: documentation for the module"""
-        self.assertIsNoteNone(FileStorage.__doc__)
+        self.assertIsNotNone(FileStorage.__doc__)
 
     def test_doc_class(self):
         """test: documentation for the class FileStorage"""
-        self.assertIsNoteNone(FileStorage.__doc__)
+        self.assertIsNotNone(FileStorage.__doc__)
 
     def test_all(self):
         """test: all() method."""
         b = BaseModel()
-        objects = self.storage.all()
+        objects = models.storage.all()
         self.assertIsInstance(objects, dict)
 
     def test_new(self):
@@ -31,9 +32,8 @@ class FileStorage_testing(unittest.TestCase):
         key_name = "BaseModel."+b.id
         self.assertIsInstance(models.storage.all()[key_name], BaseModel)
         self.assertEqual(models.storage.all()[key_name], b)
-        self.assertIn(key_name, models_storage.all())
+        self.assertIn(key_name, models.storage.all())
         self.assertTrue(models.storage.all()[key_name] is b)
-
 
 
 if __name__ == '__main__':
