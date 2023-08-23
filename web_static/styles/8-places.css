@@ -10,7 +10,8 @@
     margin-right: auto;
     font-size: 30px;
     width: 100%;
-    margin-top: 80px;
+    margin-bottom: 0;
+    margin-left: 20px;
 }
 
 .places article{
@@ -21,12 +22,10 @@
     border-radius: 4px;
     display: block;
     position: relative;
-    
 }
 
 .places h2{
     font-size: 30px;
-    
     margin-bottom: 30px;
     margin-top: 0;
     text-align: center;
